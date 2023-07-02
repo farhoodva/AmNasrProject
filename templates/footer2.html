@@ -1,0 +1,123 @@
+{% load static %}
+{% load tags %}
+<footer class="d-flex flex-column">
+	<div class="footer" id="footer">
+		<div class="col-12 py-2 py-md-2" style="border-bottom: 1px solid rgba(0,0,0,0.8);">
+		<div class="container-fluid mx-auto d-flex flex-column flex-xl-row justify-content-between align-items-start align-content-md-center rtl">
+			<div class="d-flex flex-column footer-row-one-item">
+				<span class="text-dark">با
+					ما
+					همراه باشید
+				</span>
+				<div class="d-flex align-items-center mt-3 w-100">
+					<div class="footer-social w-100">
+						<div class="social d-flex">
+							<a rel="noreferrer" class="twitter" href="" target="_blank" rel="noreferrer"><i class="fab fa-twitter"></i></a>
+							<a rel="noreferrer" class="facebook" href="" target="_blank"><i class="fab fa-facebook-f"></i></a>
+							<a rel="noreferrer" class="whatsapp" href="" target="_blank"><i class="fab fa-whatsapp"></i></a>
+							<a rel="noreferrer" class="instagram" href="" target="_blank"><i class="fab fa-instagram"></i></a>
+							<a rel="noreferrer" class="telegram" href="" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="d-flex flex-column footer-row-one-item">
+				<span class="text-dark">
+					<i class="fa fa-phone-alt py-1 px-2 text-white bg-black ms-1" style="border-radius: 4px"></i>
+					{{ '989120407821'|persian_int_not_cs }}+
+					<span class="me-2 text-shadow-dark">آقای نصرالله </span>
+				</span>
+				<span class="text-dark rtl mt-1">
+					<i class="fa fa-envelope text-white px-2 py-1 bg-black ms-1" style="border-radius: 4px"></i>
+					<span class="text-dark">example@gmail.com</span>
+				</span>
+				<span class="mt-2 text-dark">{{'همه روزه از 8 صبح تا 8 شب آماده پاسخگویی هستیم'|persian_int_not_cs  }} </span>
+			</div>
+			<div class="d-flex flex-column footer-row-one-item">
+				<div class="footer-item">
+					<div>
+						<div class="rtl text-justify footer-text pt-3">
+							<i class="fa fa-map-marker ms-2 text-black" aria-hidden="true"></i>
+							<span class="text-black text-shadow-dark"> دفتر مرکزی : </span>
+							<span class="text-shadow-dark">تهران ، خيابان شريعتي نرسيده به سه راه طالقاني ، خيابان جواد كارگر روبروی بيمارستان ايرانشهر</span>
+						</div>
+					</div>
+				</div>
+			</div>
+    	</div>
+	</div>
+		<div class="footer-holder container-fluid">
+			<div class="footer-item">
+				<div class="footer-header section-header" style="height: 40px">
+					<span class="about-span">بازار مرکزی حاتم</span>
+{#					<span class="about-span me-4 text-light-color" style="font-size: 13px">بازار مرکزی حاتم</span>#}
+				</div>
+				<div>
+					<div class="rtl footer-text pt-3 text-shadow-dark">
+						ما در مجموعه
+						<span class="text-black" style="font-size: 19px">بازار مرکزی حاتم</span>
+						مفتخر	هستیم که از سال
+						<span> {{ 2005|persian_int_not_cs }}</span>
+						توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات
+						<br>
+	توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات
+                        توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات
+                        توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات
+						<br>
+					توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات
+					</div>
+				</div>
+			</div>
+
+			<div class="footer-item">
+				<div class="footer-header section-header">
+					<span class="about-span">لینک ها</span>
+				</div>
+				<div class="d-flex flex-column">
+					<a class="mb-1 mt-3 pe-3 text-small footer-link" href="{% url 'coreFa:home' %}">
+						<i class="fa fa-chevron-left text-black" style="transform: scale(0.8)"></i>
+						<span class="text-dark footer-link">صفحه نخست</span>
+					</a>
+
+					<a class="my-1 pe-3 text-small footer-link" href="">
+						<i class="fa fa-chevron-left text-black" style="transform: scale(0.8)"></i>
+						<span class="text-dark">گالری</span>
+					</a>
+
+					<a class="my-1  pe-3 text-small footer-link" href="">
+						<i class="fa fa-chevron-left text-black" style="transform: scale(0.8)"></i>
+						<span class="text-dark">خدمات ما</span>
+					</a>
+					<a class="my-1  pe-3 text-small footer-link" href="">
+						<i class="fa fa-chevron-left text-black" style="transform: scale(0.8)"></i>
+						<span class="text-dark">پلان ها</span>
+					</a>
+					<a class="my-1  pe-3 text-small footer-link" href="">
+						<i class="fa fa-chevron-left text-black" style="transform: scale(0.8)"></i>
+						<span class="text-dark">اخبار و مقالات</span>
+					</a>
+				</div>
+			</div>
+
+			<div class="footer-item">
+				<img class="img-fluid" src="{% static 'img/logo-color-removebg-preview.png' %}" alt="">
+			</div>
+		</div>
+		<!--design section-->
+		<div class="" style="border-top: 1px solid rgba(0,0,0,0.8)">
+			 <div class="rtl container py-3">
+				<div class="footer-design">
+					<span class="d-flex justify-content-xl-start justify-content-lg-start justify-content-center w-100 mb-xl-0 mb-2 text-dark">
+						 ©2021 طراحی و پیاده سازی :
+						فرهود وطن زاده
+					</span>
+					<div class="d-flex justify-content-xl-end justify-content-lg-end justify-content-center align-items-center w-100">
+						<a rel="noreferrer" href="https://t.me/Farhoodva" target="_blank"><i class="fab fa-telegram-plane mx-3"></i></a>
+						<a rel="noreferrer" href="https://www.instagram.com/farhoodva/" target="_blank"><i class="fab fa-instagram mx-3"></i></a>
+					</div>
+				</div>
+			 </div>
+		</div>
+	</div>
+</footer>
+{% include 'scripts.html' %}

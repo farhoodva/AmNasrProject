@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,10 +23,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#@z#yti!jfpzl@&u7v8z)0d8qwy2u-zz6$8vh=j&bgl10#_=mq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# SECRET_KEY = conf_vars['SECRET_KEY']
+
+# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+#
+# if not DEBUG:
+#     SECURITY_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PHOTO', 'https')
+#     SECURE_SSL_REDIRECT = True
+#     SESSION_COOKIE_SECURE = True
+#     CSRF_COOKIE_SECURE = True
+#     SECURE_BROWSER_XSS_FILTER = True
+#     SECURE_CONTENT_TYPE_NOSNIFF =True
+#     SECURE_HSTS_SECONDS = 31536000
+#     SECURE_HSTS_PRELOAD = True
+#     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+#     X_FRAME_OPTIONS = 'DENY'
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -37,9 +51,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'coreFa',
+    # thrid-party packages
+    'sorl.thumbnail',
+    'ckeditor',
+    'ckeditor_uploader',
+    'jalali_date',
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.gzip.GZipMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -104,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fa'
 
 TIME_ZONE = 'UTC'
 
@@ -117,8 +140,66 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_URL = '/media/'
+# if not DEBUG:
+#     MEDIA_ROOT = '/home/AmNasrProject/public_html/media'
+# else:
+MEDIA_ROOT = (
+    os.path.join(BASE_DIR, 'media')
+)
+CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
+CKEDITOR_UPLOAD_SLUGIFY_FILENAME = True
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_UPLOAD_PATH = "image_upload/"
+CKEDITOR_BROWSE_SHOW_DIRS = True
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': (
+            ['div', 'Source', '-', 'Save', 'NewPage', 'Preview', '-'],
+            ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Print', 'SpellChecker', 'Scayt'],
+            ['Undo', 'Redo', '-', 'Find', 'Replace', '-', 'SelectAll', 'RemoveFormat'],
+            ['Bold', 'Italic', 'Underline', 'Strike', '-', 'Subscript', 'Superscript'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blockquote'],
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink', 'Anchor'],
+            ['Image', 'Table', 'HorizontalRule', 'SpecialChar', 'PageBreak'],
+            ['Styles', 'Format', 'Font', 'FontSize'],
+            ['TextColor', 'BGColor'],
+            ['Maximize'],
+        ),
+    }
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+JALALI_DATE_DEFAULTS = {
+    'Strftime': {
+        'date': '%y/%m/%d',
+        # 'datetime': '%H:%M:%S _ %y/%m/%d',
+        'datetime': '%H:%M ، 14%y/%m/%d',
+    },
+    'Static': {
+        'js': [
+            # loading datepicker
+            'admin/js/django_jalali.min.js',
+            # OR
+            # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.core.js',
+            # 'admin/jquery.ui.datepicker.jalali/scripts/calendar.js',
+            # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.datepicker-cc.js',
+            # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.datepicker-cc-fa.js',
+            # 'admin/js/main.js',
+        ],
+        'css': {
+            'all': [
+                'admin/jquery.ui.datepicker.jalali/themes/base/jquery-ui.min.css',
+            ]
+        }
+    },
+}

@@ -1,0 +1,62 @@
+{% load static %}
+{% load tags %}
+<!DOCTYPE html>
+<head lang="fa" dir="rtl">
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#141414">
+    <link rel="shortcut icon" href={% static "img/favicon.jpg"%}>
+{#    <link rel="preconnect" href="https://fonts.googleapis.com">#}
+{#    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>#}
+{#    <link rel="preload" as="image" href="{% static 'img/bg-1.webp' %}">#}
+    <title>{% block head_title %}بازار مرکزی حاتم{% endblock %}</title>
+	{% block meta %}
+	<meta name="description" content="pluriennale e pregressa dei suoi collaboratori.  Lo studio si occupa di progettazione strutturale,
+	architettonica, termotecnica, illuminotecnica ed antincendio in ambito residenziale, industriale e pubblico. Inoltre, offre servizi di catasto, rilievo,
+	 concept design, consulenza progettuale e presentazione di istanze autorizzative per pubblico spettacolo.">
+    <link rel="canonical" href='https://www.studio-ingegno.it{{ request.get_full_path }}'>
+    {% block rel_alternate %}
+        <link rel="alternate" href='https://www.studio-ingegno.it{{ request.get_full_path }}' hreflang="en-US">
+        <link rel="alternate" href='https://www.studio-ingegno.it{{ request.get_full_path}}' hreflang="it">
+    {% endblock %}
+    {% endblock %}
+    {% include 'style.html' %}
+    <style>
+    .loader{
+        background: #FFFFFF url("/static/img/my-loader-1.svg") center center no-repeat;
+        background-size: 8%;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        position: fixed;
+        z-index: 1000;
+        display: initial;
+}
+    .loader div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        z-index: 1001;
+}
+    </style>
+
+<body class="">
+<div class="loader">
+    <div>
+        <img class="img-fluid" style="position: relative;top: -10vh" src="{% static 'img/Logo-loader.jpg' %}" width="180" alt="hatam central bazaar logo">
+    </div>
+</div>
+<div class="back-to-top">
+	<i class="fa fa-chevron-up"></i>
+</div>
+{% include 'navbar.html' %}
+{% block content %}
+
+{% endblock %}
+
+
+{% include 'footer2.html' %}
+</body>
