@@ -36,6 +36,8 @@ scrollUp.addEventListener('click', ()=>{
 //         light.classList.remove('d-none')
 //         dark.classList.add('d-none')
 // }
+
+
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 })
@@ -89,3 +91,24 @@ const btnGroup = document.getElementsByClassName('btn-group')
         })
     }
 }
+const showModal = document.getElementById('showModal')
+if(showModal){
+    showModal.addEventListener('click',(e)=>{
+        e.preventDefault()
+        var modal = new bootstrap.Modal(document.getElementById('contactModal'))
+        modal.show()
+    })
+}
+window.addEventListener('scroll', ()=>{
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("myBar").style.width = scrolled + "%";
+})
+
+const showTest = document.getElementById('showText')
+const hiddenText = document.getElementById('hiddenText')
+    showTest.addEventListener('click', ()=>{
+        showTest.style.display = 'none'
+        hiddenText.style.display = 'initial'
+    })

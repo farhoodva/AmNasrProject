@@ -9,7 +9,12 @@ class ArticleAdmin(admin.ModelAdmin):
     list_editable = ['active']
 
 
+class GalleryImagesAdmin(admin.ModelAdmin):
+    list_display = ['title','description', 'image']
+
+
 admin.site.register(NewsAndArticles, ArticleAdmin)
+admin.site.register(GalleryImages, GalleryImagesAdmin)
 
 admin.site.site_header = 'بازار مرکزی حاتم'
 admin.site.index_title = 'مدیریت بازار مرکزی حاتم'

@@ -1,3 +1,4 @@
+{% load tags %}
 {% load static %}
 
         <!-- Nav Bar Start -->
@@ -13,20 +14,8 @@
                     <div class="navbar-nav ms-auto rtl">
                         <a href="{% url 'coreFa:home' %}" class="nav-item nav-link">صفحه نخست</a>
 
-                        <a  class="nav-item nav-link" href="">گالری</a>
-
-                        <div class="btn-group">
-                          <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                            خدمات ما
-                          </button>
-                          <ul class="dropdown-menu dropdown-menu-lg dropdown_menu-down-out">
-                            <li><a href="" class="dropdown-item dropdown-hover" type="button">Progettazione</a></li>
-                            <li><a href="" class="dropdown-item dropdown-hover" type="button">Rilievo Architettonico 3D</a></li>
-                            <li><a href="" class="dropdown-item dropdown-hover" type="button">Catasto</a></li>
-                            <li><a href="" class="dropdown-item dropdown-hover" type="button">Pubblico Spettacolo</a></li>
-                            <li><a href="" class="dropdown-item dropdown-hover" type="button">Prevenzione Incendi</a></li>
-                          </ul>
-                        </div>
+                        <a  class="nav-item nav-link" href="{% url 'coreFa:gallery' %}">گالری</a>
+                        <a  class="nav-item nav-link" href="{% url 'coreFa:article-list-view' %}">اخبار</a>
 
                         <div class="btn-group">
                           <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
@@ -59,38 +48,41 @@
                     </div>
                 </div>
             </div>
+            <div class="header">
+              <div class="progress-container">
+                <div class="progress-bar" id="myBar"></div>
+              </div>
+            </div>
         </div>
         <!-- Nav Bar End -->
 
         <!-- contact-us modal -->
-		<div id="contactModalIt" class="modal fade" tabindex="-1">
+		<div id="contactModal" class="modal fade" tabindex="-1">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 					<div class="modal-body text-center text-small d-flex flex-column align-items-center justify-content-center bg-black">
 						<div class="col-12 mb-4">
 							<div class="contact-modal d-flex flex-column align-items-center justify-content-center py-2 px-1 mx-auto bg-black">
-								<div class="team-card-info mt-5">
-									<h1 class="text-center my-2">
-										<span>Noemi Bianco</span>
+                                <div class="team-card-info mt-5">
+                                    <img class="img" src="{% static 'img/amir-nasr.webp' %}" alt="عکس آقای امیر نصرالله">
+                                    <h1 class="text-center my-2">
+										<span class="me-2 text-white">آقای نصرالله </span>
 									</h1>
 									<p class="text-center my-2 w-100">
-										<i class="icon-phone me-2 text-orange fa-2x" style="width: 35px" aria-hidden="true"></i>
-										<span style="font-size: 25px">011 4052040</span> </br>
-									</p>
-						        	<p class="text-center my-2 w-100">
-										<i class="icon-phone me-2 text-orange fa-2x" style="width: 35px" aria-hidden="true"></i>
-										<span style="font-size: 25px">334 9403846</span>
+										<i class="fa fa-phone me-2 text-white fa-2x" style="width: 35px" aria-hidden="true"></i>
+										<span class="text-white" style="font-size: 25px">{{ '09120407821'|persian_int_not_cs }}</span>
+                                        </br>
 									</p>
 									<p class="text-center my-2 w-100">
-										<i class="icon-envelope px-2 py-1 me-2 text-orange fa-2x sm-hide" style="width: 35px" aria-hidden="true"></i>
-										<span style="font-size: 25px">info@studio-ingegno.it</span>
+										<i class="fa fa-envelope px-2 py-1 me-2 text-white fa-2x sm-hide" style="width: 35px" aria-hidden="true"></i>
+										<span class="text-white" style="font-size: 25px">amirn059@gmail.com</span>
 									</p>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="text-center py-3 bg-orange" >
-						<button id="modalClose" type="button" class="btn btn-black-c rounded-pill mx-auto"style="box-shadow: rgba(0,0,0,0.3) 0 0 7px 5px!important" data-bs-dismiss='modal'>Close</button>
+						<button id="modalClose" type="button" class="btn btn-black-c rounded-pill mx-auto" style="box-shadow: rgba(0,0,0,0.3) 0 0 7px 5px!important" data-bs-dismiss='modal'>بستن</button>
 					</div>
 				</div>
 			</div>

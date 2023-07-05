@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load tags %}
+{% load jalali_tags %}
+{% load thumbnail %}
+{% load static %}
+{% block head_title %}
+    آخرین اخبلرو مقاله ها  | بازار مرکزی حاتم
+{% endblock %}
+
+{% block content %}
+    <section class="page-section-header">
+        <a class="me-1 text-black" href="{% url 'coreFa:home' %}"><h3>صفحه نخست</h3></a>
+        <div class="d-block text-black pt-3" style="border-top: 2px solid var(--black-color);"><h1>اخبار و مقاله ها</h1></div>
+
+    </section>
+    <br>
+    <div class="container-c px-2 px-md-4 py-4 d-flex flex-column justify-content-center align-items-center news-holder">
+        {% for news in newsandarticles_list %}
+            {% if news.active %}
+            <div class="card bg-black my-3 news-card px-2" style="max-width: 640px">
+                <div class="row flex-row-reverse">
+                    <div class="col-md-4 mb-2 mb-md-0">
+                        {% thumbnail news.pic '350x350' crop="center" as im %}
+                            <img class="img-fluid" src="{{ im.url }}" alt="{{ news.title }} عکس ">
+                        {% endthumbnail %}
+                    </div>
+                    <div class="col-md-8" style="direction: rtl">
+                        <h5 class="text-white">{{ news.title }}</h5>
+                        <small class="text-white">
+                            توسط :
+                            {{ news.author }} در {{ news.created_at|to_jalali|persian_int_not_cs }}
+                        </small>
+                        <br><br>
+                        <p class="text-white" style="direction: rtl">
+                          {{ news.short_description|truncatechars:100 }}
+                        </p>
+                        <a class="btn btn-lg btn-light float-start ms-5" href="{{ news.get_article_detail_view }}">ادامه</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock %}

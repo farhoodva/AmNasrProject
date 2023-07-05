@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load tags %}
+{% load jalali_tags %}
+{% load thumbnail %}
+{% load static %}
+{% block head_title %}
+    {{ news.title }}  | بازار مرکزی حاتم
+{% endblock %}
+
+{% block content %}
+    <section class="page-section-header">
+        <a class="me-1 text-black" href="{% url 'coreFa:article-list-view' %}"><h3>اخبار و مقاله ها</h3></a>
+        <div class="d-block text-black pt-3" style="border-top: 2px solid var(--black-color);"><h1>{{ news.title }}</h1></div>
+
+    </section>
+    <br>
+    <div class="container-c ps-1 ps-md-5 py-2 py-md-5 d-flex flex-column shadow-lg" style="direction: rtl";>
+        <div class="d-flex flex-column align-items-start w-75">
+            <h1 class="my-2">{{ news.title }}</h1>
+            <small class="text-black">
+                 نوشته شده توسط :
+                {{ news.author }}
+            </small>
+            در تاریخ :
+            {{ news.created_at|to_jalali|persian_int_not_cs }}
+        </div>
+        <div class="w-75 article my-2">{{ news.body|safe }}</div>
+    </div>
+     <!-- -news and articles--->
+    <section class="py-md-5 news-section rtl">
+        <h1 class="mt-3 mt-md-5 py-1 ms-auto container-c">آخرین مقالات سایت</h1>
+        <div class="news-holder container-fluid py-0 py-md-5">
+            {% for news in news_items %}
+                <div class="card d-flex flex-column align-items-start justify-content-between bg-black my-4 pb-3">
+                    {% thumbnail news.pic "350x300" crop="center" as im %}
+                         <img loading="lazy" class="img-fluid" src="{{ im.url }}" alt="{{ news.title }}-picture of article"
+{#                         style="  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */#}
+{#                                    filter: grayscale(100%);"#}
+                         >
+                    {% endthumbnail %}
+                    <span class="card-header text-white">{{ news.title }}</span>
+                    <span class="small text-white" style="padding-right: 1rem">توسط : {{ news.author }}</span>
+                    <small class="text-white" style="padding-right: 1rem">{{ news.created_at|to_jalali|persian_int_not_cs }}</small>
+                    <div class="d-flex align-items-baseline justify-content-center justify-content-md-start w-100 pe-2 py-0">
+                        <a class="btn btn-light" style="transform: scale(0.8);" href="{{ news.get_article_detail_view }}">ادامه...</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="w-100 d-flex justify-content-center align-items-center">
+            <a class="btn btn-black-c" style="box-shadow: rgba(0,0,0,0.3) 0 0 7px 5px!important" href="{% url 'coreFa:article-list-view' %}"> لیست مقالات</a>
+        </div>
+        <br>
+        <br>
+    </section>
+     <!---news and articles end- -->
+{% endblock %}

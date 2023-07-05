@@ -5,20 +5,24 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#141414">
-    <link rel="shortcut icon" href={% static "img/favicon.jpg"%}>
+    <link rel="shortcut icon" href={% static "img/favicon.png"%}>
 {#    <link rel="preconnect" href="https://fonts.googleapis.com">#}
 {#    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>#}
 {#    <link rel="preload" as="image" href="{% static 'img/bg-1.webp' %}">#}
     <title>{% block head_title %}بازار مرکزی حاتم{% endblock %}</title>
 	{% block meta %}
-	<meta name="description" content="pluriennale e pregressa dei suoi collaboratori.  Lo studio si occupa di progettazione strutturale,
-	architettonica, termotecnica, illuminotecnica ed antincendio in ambito residenziale, industriale e pubblico. Inoltre, offre servizi di catasto, rilievo,
-	 concept design, consulenza progettuale e presentazione di istanze autorizzative per pubblico spettacolo.">
-    <link rel="canonical" href='https://www.studio-ingegno.it{{ request.get_full_path }}'>
-    {% block rel_alternate %}
-        <link rel="alternate" href='https://www.studio-ingegno.it{{ request.get_full_path }}' hreflang="en-US">
-        <link rel="alternate" href='https://www.studio-ingegno.it{{ request.get_full_path}}' hreflang="it">
+	<meta name="description" content="در سال 1392 بنا بر تقاضا و دعوت استاندار وقت و شهردار کلانشهر کرج
+	 عملیات احداث پروژه توسعه میدان در قالب«سامانه فروش محصولات کشاورزی» با خریداری زمین به مساحت 23000 مترمربع در ضلع غرب و جنوب میدان فعلی شروع گردید
+	و در طول بیش از 5 سال پیگیری مداوم، مجوزهای قانونی پروژه از مراجع ذیصلاح منجمله اداره کل جهاد کشاورزی، محیط زیست، راه و. شهرسازی، سازمان صمت استان،
+	اداره کل امور زیربنایی استانداری و در نهایت شورای برنامه ریزی استان اخذ و با صدور پروانه توسط شهرداری کرج عملیات ساختمانی آن در سال 1397 شروع گردید.">
+    <link rel="canonical" href='https://www.hatam.ir{{ request.get_full_path }}'>
+{#    {% block rel_alternate %}#}
+{#        <link rel="alternate" href='https://www.hatam.ir{{ request.get_full_path }}' hreflang="en-US">#}
+{#        <link rel="alternate" href='https://www.hatam.ir{{ request.get_full_path}}' hreflang="it">#}
+{#    {% endblock %}#}
     {% endblock %}
+    {% block extra_head %}
+    
     {% endblock %}
     {% include 'style.html' %}
     <style>
@@ -41,9 +45,33 @@
         height: 100%;
         z-index: 1001;
 }
+.header {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: #f1f1f1;
+}
+
+/* The progress container (grey background) */
+.progress-container {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: var(--body-color);
+}
+
+/* The progress bar (scroll indicator) */
+.progress-bar {
+  position: absolute;
+  height: 3px;
+  background: #000000;
+  width: 0%;
+}
     </style>
 
 <body class="">
+
 <div class="loader">
     <div>
         <img class="img-fluid" style="position: relative;top: -10vh" src="{% static 'img/Logo-loader.jpg' %}" width="180" alt="hatam central bazaar logo">
@@ -52,6 +80,7 @@
 <div class="back-to-top">
 	<i class="fa fa-chevron-up"></i>
 </div>
+
 {% include 'navbar.html' %}
 {% block content %}
 

@@ -1,8 +1,10 @@
+from PIL import Image
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 
 # Create your models here.
 from django.db.models.signals import post_save
+from django.urls import reverse
 
 
 class NewsAndArticles(models.Model):
@@ -23,10 +25,10 @@ class NewsAndArticles(models.Model):
     def __str__(self):
         return self.title
 
-    # def get_article_detail_view(self):
-    #     return reverse('coreFa:detail-view', kwargs={
-    #         'slug': self.slug
-    #     })
+    def get_article_detail_view(self):
+        return reverse('coreFa:article-detail-view', kwargs={
+            'pk': self.pk
+        })
 
     # @classmethod
     # def slug_post_create(cls, sender, instance, created, *args, **kwargs):
@@ -59,3 +61,24 @@ class NewsAndArticles(models.Model):
 
 
 # post_save.connect(NewsAndArticles.slug_post_create, sender=NewsAndArticles)
+
+
+class GalleryImages(models.Model):
+    title = models.CharField('عنوان', max_length=150, default='عکس گالری')
+    image = models.ImageField('عکس', upload_to='gallery_images')
+    description = models.CharField('توضیحات', max_length=150, default='توضیحات عکس')
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        super(GalleryImages, self).save(*args, **kwargs)
+        img = Image.open(self.image.path)
+        if img.width > 400 or img.height > 300:
+            output_size = (1920, 1080)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
+
+    class Meta:
+        verbose_name_plural = 'عکس های گالری'
+        verbose_name = 'عکس گالری'
