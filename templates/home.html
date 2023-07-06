@@ -93,7 +93,8 @@
                             دارای مدرن ترین تجهزیات سردخانه ای
                         </h1>
                         <p class="rtl hero-text">
-                            بازار مرکزی حاتم بهترین خدمات را در اختیار شما میگذارد.
+                            {{ 'بازار مرکزی حاتم شهر کرج در موقعیت جغرافیایی عالی و در زمینی به مساحت 23000 متر مربع بهترین امکانات و خدمات را در اختیار شما غرفه دارن و همشهریان عزیز میگذارد.'|persian_int_not_cs }}
+
                         </p>
                         <br><br><br>
                         <div class="justify-content-end flex-column flex-lg-row-reverse align-items-center">
@@ -120,10 +121,10 @@
                 <div class="d-flex align-items-center align-items-md-end justify-content-center flex-column">
                     <h1 class="rtl hero-text my-5">
                         <span class="text-black fw-bold"> بازار مرکزی حاتم</span>
-                       با پلن های کاملا مهندسی شده
+                       با پلان های کاملا مهندسی شده
                     </h1>
-                    <a class="btn btn-black-c">
-                       مشاهده پلن ها
+                    <a class="btn btn-black-c" href="{% url 'coreFa:plans' %}">
+                       مشاهده پلان ها
                     </a>
                     </div>
                 </div>
@@ -165,27 +166,27 @@
     </div>
     <section class="row justify-content-between container-c align-items-center mt-3 mt-md-5 py-3">
         <div class="d-flex flex-column align-items-center justify-content-around">
-            <h1 class="mb-3 mb-md-5 py-1 py-md-4 ms-auto">دلایل انتخاب ما</h1>
+            <h1 class="mb-3 mb-md-5 py-1 py-md-4 ms-auto">ویژگی های خاص</h1>
             <div class="row flex-column flex-md-row justify-content-between align-items-center position-relative mid-sec">
                 <div class="col-12 col-md-3">
                     <div class="d-flex flex-column align-items-end justify-content-between bg-white px-2 py-3 card-c">
                         <img class="w-50" src="{% static 'img/shop.svg' %}" alt="">
-                        <h4> لورم ایپسوم </h4>
-                        <p class="">لورم ایپسوم لورم ایپسوم لورم ایپسوم</p>
+                        <h4> غرفه های مهندسی شده </h4>
+                        <p class="rtl"> {{ '180 غرفه با پلان های مهندسی شده'|persian_int_not_cs }} </p>
                     </div>
                 </div>
                 <div class="col-12 col-md-3">
                     <div class="d-flex flex-column align-items-end justify-content-between bg-black px-2 py-3 card-c">
                         <img class="w-50 text-white" src="{% static 'img/basket-white.svg' %}" alt="">
-                        <h4> لورم ایپسوم </h4>
-                        <p class="">لورم ایپسوم لورم ایپسوم لورم ایپسوم</p>
+                        <h4> دسترسی مناسب </h4>
+                        <p class=""> قابلیت سرویس دهی به جمعیت شهر کرج</p>
                     </div>
                 </div>
                 <div class="col-12 col-md-3">
                     <div class="d-flex flex-column align-items-end justify-content-between bg-white px-2 py-3 card-c">
                         <img class="w-50" src="{% static 'img/truck.svg' %}" alt="" >
-                        <h4> لورم ایپسوم </h4>
-                        <p class="">لورم ایپسوم لورم ایپسوم لورم ایپسوم</p>
+                        <h4> بارگیری آسان </h4>
+                        <p class="">{{ 'در زمینی به مساحت 23000 متر مربع'|persian_int_not_cs }}</p>
                     </div>
                 </div>
             </div>
@@ -198,11 +199,8 @@
         <div class="news-holder container-c py-0 py-md-5">
             {% for news in news %}
                 <div class="card d-flex flex-column align-items-start justify-content-between bg-black my-4 pb-3">
-                    {% thumbnail news.pic "350x300" crop="center" as im %}
-                         <img loading="lazy" class="img-fluid" src="{{ im.url }}" alt="{{ news.title }}-picture of article"
-{#                         style="  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */#}
-{#                                    filter: grayscale(100%);"#}
-                         >
+                    {% thumbnail news.pic "351x300" crop="center" as im %}
+                         <img loading="lazy" class="img-fluid" src="{{ im.url }}" alt="{{ news.title }}-عکس ">
                     {% endthumbnail %}
                     <span class="card-header text-white">{{ news.title }}</span>
                     <span class="small text-white" style="padding-right: 1rem">توسط : {{ news.author }}</span>

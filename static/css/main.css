@@ -1,7 +1,6 @@
 /*******************************/
 /********* General CSS *********/
 /*******************************/
-/*@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');*/
 :root {
     --body-color:#f5f5f5;
     --title-green: #9CCC65;
@@ -98,13 +97,6 @@ body {
 .rtl{
     direction: rtl;
 }
-/*.svg-black-1{*/
-/*    background-image: url("/static/img/endless-constellation.svg");*/
-/*    background-size: auto;*/
-/*    background-position: center;*/
-/*    background-repeat: repeat;*/
-/*    background-attachment: fixed;*/
-/*}*/
 i.fa-2x{
     font-size: 1.5rem;
 }
@@ -143,7 +135,7 @@ a:focus {
     text-align: center;
     line-height: 1;
     font-size: 22px;
-    right: 1.5vw;
+    right: 23px;
     bottom: 3vh;
     transition:background 0.5s;
     z-index: 9;
@@ -474,7 +466,7 @@ a:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*box-shadow: rgba(0,0,0,0.3) 0 0 7px 5px!important;*/
+    filter:drop-shadow( 0 0 7px rgba(255,255,255,1)) !important;
     animation: pulse-black 2s infinite;
 
 }
@@ -643,15 +635,15 @@ box-shadow: -14px 10px 5px 0px rgba(0,0,0,0.23);
     }
 }
 .page-link{
-    background-color: var(--orange-custom) !important;
+    background-color: var(--body-color) !important;
     color: var(--black-color)!important;
     border-color: var(--black-color)!important;
 }
 .page-item.active .page-link {
     z-index: 3;
-    background-color: var(--orange-custom) !important;
-    color: var(--black-color)!important;
-    border-color: #FFFFFF!important;
+    background-color: var(--black-color) !important;
+    color: var(--body-color)!important;
+    /*border-color: #FFFFFF!important;*/
 }
 /********* gallery css *********/
 .gallery-img{
@@ -706,7 +698,7 @@ box-shadow: -14px 10px 5px 0px rgba(0,0,0,0.23);
     left: 0;
 }
 .outer-box:hover > .gallery-box > .glightbox6 > .gallery-img{
-    transform: scale(1.05) !important;
+    transform: translateX(-5px) scale(1.02) !important;
 }
 /******* team section and cards ********/
 .contact-modal{

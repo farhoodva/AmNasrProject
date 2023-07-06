@@ -74,7 +74,7 @@ class GalleryImages(models.Model):
     def save(self, *args, **kwargs):
         super(GalleryImages, self).save(*args, **kwargs)
         img = Image.open(self.image.path)
-        if img.width > 400 or img.height > 300:
+        if img.width > 1920 or img.height > 1080:
             output_size = (1920, 1080)
             img.thumbnail(output_size)
             img.save(self.image.path)
@@ -82,3 +82,30 @@ class GalleryImages(models.Model):
     class Meta:
         verbose_name_plural = 'عکس های گالری'
         verbose_name = 'عکس گالری'
+
+
+class Plans(models.Model):
+    title = models.CharField('عنوان پلان', max_length=150, default='پلان')
+    image = models.ImageField('عکس', upload_to='plans')
+    description = models.CharField('توضیحات', max_length=150, default='توضیحات پلان')
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        super(Plans, self).save(*args, **kwargs)
+        img = Image.open(self.image.path)
+        if img.width > img.height:
+            if img.width > 2560 or img.height > 1440:
+                output_size = (2560, 1440)
+                img.thumbnail(output_size)
+                img.save(self.image.path)
+            else:
+                if img.width > 2560 or img.height > 1440:
+                    output_size = (1440,2560)
+                    img.thumbnail(output_size)
+                    img.save(self.image.path)
+
+    class Meta:
+        verbose_name_plural = 'پلان ها'
+        verbose_name = 'پلان'

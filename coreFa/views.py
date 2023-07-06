@@ -34,9 +34,19 @@ class NewsDetailView(generic.DetailView):
         return news
 
 
-class GalleryView(generic.ListView):
+class GalleryListView(generic.ListView):
     model = GalleryImages
     template_name = 'gallery.html'
+    paginate_by = 8
 
     def get_queryset(self):
         return GalleryImages.objects.all().order_by('-pk')
+
+
+class PlansListView(generic.ListView):
+    model = Plans
+    template_name = 'plans.html'
+    paginate_by = 8
+
+    def get_queryset(self):
+        return Plans.objects.all().order_by('-pk')

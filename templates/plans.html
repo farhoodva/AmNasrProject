@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block extra_head %}
+<!-- USING A CDN -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+<script type="module">
+  import 'https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js';
+
+ const lightbox = GLightbox({
+  touchNavigation: true,
+  loop: true,
+  selector: ".glightbox6",
+  openEffect: "zoom",
+  closeEffect: "zoom",
+  closeOnOutsideClick: true,
+  zoomable: true,
+  height: "auto",
+  width: "100vw",
+});
+function openLightBox(){
+    lightbox.open()
+}
+</script>
+<!-- USING ES MODULES -->
+{% endblock %}
+{% load tags %}
+{% load jalali_tags %}
+{% load thumbnail %}
+{% load static %}
+{% block head_title %}
+    پلن ها  | بازار مرکزی حاتم
+{% endblock %}
+
+{% block content %}
+    <section class="page-section-header">
+        <a class="me-1 text-black" href="{% url 'coreFa:home' %}"><h3>صفحه نخست</h3></a>
+        <div class="d-block text-black pt-3" style="border-top: 2px solid var(--black-color);"><h1>پلن ها</h1></div>
+    </section>
+    <br>
+    <div class="container-c justify-content-center d-flex flex-wrap">
+    {% for img in object_list %}
+        <div class="position-relative my-2 mx-2 overflow-hidden outer-box" style="border-radius: 15px;box-shadow: rgba(0, 0, 0, 0.3) 0px 60px 40px -7px;" >
+            <div class="gallery-box">
+               <a href="{{ img.image.url }}" id ='img{{ img.pk }}' class="glightbox6"
+                  data-gallery="gallery1"
+                  data-title="{{ img.title|persian_int_not_cs }}"
+                  data-description="{{ img.description|persian_int_not_cs }}"
+                  data-desc-position="right"
+               >
+                   {% thumbnail img.image '300x300' crop="center" as im %}
+                       <img loading="lazy" class="gallery-img" src="{{ im.url }}" alt="{{ img.title }}" />
+                    {% endthumbnail %}
+                </a>
+            </div>
+            <span id="title{{ img.pk }}" onclick="showLB(`{{ img.pk }}`)" class="img-title rtl">
+                {{ img.title|persian_int_not_cs}} <br>
+                <span>{{ img.description|truncatechars:50 }}</span>
+            </span>
+        </div>
+    {% endfor %}
+    </div>
+		{% if is_paginated %}
+            <br><br>
+			<nav>
+				<nav class="d-flex justify-content-center mt-5">
+					<ul class="pagination primary mb-0">
+						<!--Arrow left-->
+						{% if page_obj.has_previous %}
+						<li class="page-item">
+							<a class="page-link" href="?page={{ page_obj.previous_page_number}}" aria-label="Previous">
+								<span aria-hidden="true">&laquo; </span>
+								<span class="sr-only">قبلی</span>
+							</a>
+						</li>
+						{% endif %}
+
+						{% for page in page_obj.paginator %}
+						<li
+							{% if page.number == page_obj.number %}
+								class="page-item active"
+							{% else %}
+								class="page-item"
+							{% endif %}
+								>
+							<a href="?page={{ page.number }}" class="page-link">
+								<span >{{ page.number|persian_int_not_cs }}</span>
+							</a>
+						</li>
+						{% endfor %}
+
+						{% if page_obj.has_next %}
+						<li class="page-item">
+							<a class="page-link" href="?page={{ page_obj.next_page_number}}" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span>
+								<span class="sr-only">بعدی</span>
+							</a>
+						</li>
+						{% endif %}
+					</ul>
+				</nav>
+			</nav>
+		{% endif %}
+
+    <script>
+    function showLB(n){
+        const slide= document.getElementById(`img${n}`)
+        slide.click()
+
+    }
+    </script>
+{% endblock %}
