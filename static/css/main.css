@@ -650,7 +650,6 @@ box-shadow: -14px 10px 5px 0px rgba(0,0,0,0.23);
     transition-duration: 600ms;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 60px 40px -7px;
     border-radius: 15px;
-    display: inline-block;
 }
 
 .gslide-title, .gslide-desc{
@@ -733,27 +732,61 @@ box-shadow: -14px 10px 5px 0px rgba(0,0,0,0.23);
     -webkit-border-radius: 50%;
     object-fit: cover;
 }
-.team-card .fab{
-    color: rgba(255,20,89,0.93);
-    transition-duration: 400ms;
-    font-size: 1.2rem;
+/******* projects ********/
+.tab-project-header{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
 }
-.team-card .fab:hover{
-    color: rgba(255,20,89,0.6);
-    transition: color 500ms;
-    transform: scale(1.1);
+.tab-header{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 60px 40px -7px;
+    padding: 5px 15px;
+    cursor: pointer;
+    background-color: var(--black-color);
+    color: var(--body-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    border-radius: 15px;
+    font-size: 2rem;
+    transition-duration: 600ms;
+}
+.tab-header:hover{
+    translate: 2px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 60px 40px -7px;
+}
+.tab-header.active{
+    background-color: var(--body-color);
+    color: var(--black-color);
+    border-bottom: 3px solid black;
+    position: relative;
+}
+.tab-chevron{
+    display: none!important;
+}
+.tab-chevron.active{
+    display: initial!important;
+    position: absolute;
+    bottom: -20px;
+    font-size: 1rem;
+}
+.content-tab{
+    display: none!important;
+    direction: rtl;
+}
+.content-tab.active{
+    display: initial!important;
 }
 /******* footer ********/
+
 footer{
     margin-top: 50px;
-    /*background: url("/static/img/Hexagon.svg") no-repeat center scroll;*/
-    /*background-size: cover;*/
     background-color: rgba(242,243,247,1);
     background-image: url("/static/img/footer.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
-
 .footer-holder {
     display: flex;
     direction: rtl;
@@ -763,7 +796,6 @@ footer{
     padding: 45px 0;
 }
 .footer{
-    /*margin-top: 70px;*/
     padding-top: 30px;
     border-top: 1px solid var(--black-color);
 }

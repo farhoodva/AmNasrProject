@@ -19,6 +19,11 @@ class NewsListView(generic.ListView):
         return NewsAndArticles.objects.all().order_by('created_at')
 
 
+class ProjectsView(generic.TemplateView):
+    # model = NewsAndArticles
+    template_name = 'our-projects.html'
+
+
 class NewsDetailView(generic.DetailView):
     model = NewsAndArticles
     template_name = 'news-detail.view.html'

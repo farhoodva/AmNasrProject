@@ -48,7 +48,7 @@ function openLightBox(){
                   data-description="{{ img.description|persian_int_not_cs }}"
                   data-desc-position="right"
                >
-                   {% thumbnail img.image '300x300' crop="center" as im %}
+                   {% thumbnail img.image '300x301' crop="center" as im %}
                        <img loading="lazy" class="gallery-img" src="{{ im.url }}" alt="{{ img.title }}" />
                     {% endthumbnail %}
                 </a>

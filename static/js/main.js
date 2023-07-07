@@ -112,3 +112,32 @@ const hiddenText = document.getElementById('hiddenText')
         showTest.style.display = 'none'
         hiddenText.style.display = 'initial'
     })
+
+function switchTab(id){
+    const tab = document.getElementsByClassName('tab-header')
+    const tabChevrons = document.getElementsByClassName('tab-chevron')
+    const contentTab = document.getElementsByClassName('content-tab')
+        for (let i = 0; i < tab.length; i++) {
+            if (tab[i].id === id) {
+                tab[i].classList.add('active')
+            } else {
+                tab[i].classList.remove('active')
+            }
+        }
+        for (let i = 0; i < tabChevrons.length; i++){
+            let chevronId = 'chevron' + id
+            if(tabChevrons[i].id === chevronId){
+                tabChevrons[i].classList.add('active')
+            } else {
+                tabChevrons[i].classList.remove('active')
+            }
+    }
+        for (let i = 0; i < contentTab.length; i++){
+            let contentTabID = 'content' + id
+            if(contentTab[i].id === contentTabID){
+                contentTab[i].classList.add('active')
+            } else {
+                contentTab[i].classList.remove('active')
+            }
+    }
+}

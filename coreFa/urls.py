@@ -10,4 +10,5 @@ urlpatterns = [
     path('news-and-articles/<pk>', NewsDetailView.as_view(), name='article-detail-view'),
     path('galley', GalleryListView.as_view(), name='gallery'),
     path('plans', PlansListView.as_view(), name='plans'),
+    path('our-projects', ProjectsView.as_view(), name='our-projects'),
     ]

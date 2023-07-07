@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load tags %}
+{% load jalali_tags %}
+{% load thumbnail %}
+{% load static %}
+{% block head_title %}
+    پروژه های دیگر ما  | بازار مرکزی حاتم
+{% endblock %}
+
+{% block content %}
+    <section class="page-section-header">
+        <a class="me-1 text-black" href="{% url 'coreFa:home' %}"><h3>صفحه نخست</h3></a>
+        <div class="d-block text-black pt-3" style="border-top: 2px solid var(--black-color);"><h1>پروژه های دیگر ما</h1></div>
+    </section>
+    <br>
+
+    <section class="tab-holder">
+        <div class="tab-project-header container-c">
+            <div id="Tab-1" class="tab-header active" onclick="switchTab(this.id)">
+                <i id="chevronTab-1" class="fa fa-chevron-down tab-chevron active"></i>
+                {{'پروژه 1'|persian_int_not_cs}}
+            </div>
+            <div id="Tab-2" class="tab-header" onclick="switchTab(this.id)">
+                <i id="chevronTab-2" class="fa fa-chevron-down tab-chevron"></i>
+                {{'پروژه 2'|persian_int_not_cs}}
+            </div>
+            <div id="Tab-3" class="tab-header" onclick="switchTab(this.id)">
+                <i id="chevronTab-3" class="fa fa-chevron-down tab-chevron"></i>
+                {{'پروژه 3'|persian_int_not_cs}}
+            </div>
+        </div>
+    </section>
+    <br><br><br>
+    <section class="container-c">
+        <div id="contentTab-1" class="content-tab active">
+            <div class="content-right-pic">
+                <p>
+                    Edificio unifamiliare <br>
+                    Nole canavese, Torino, Italia <br>
+                    Committente privato <br>
+                    Ampliamento, Ristrutturazione interna, Riqualificazione energetica tramite cappotto esterno,
+                        Sostituzione di impianto termico con il SUPERBONUS 110%
+                </p>
+                <img loading="lazy" class="img-fluid" src="{% static 'img/bg-1.jpg' %}" alt="carta di torino-land-registry image">
+            </div>
+            <hr class="w-50 mx-auto" style="color: var(--black-color);padding: 1.5px">
+            <div class="content-left-pic">
+                <img loading="lazy" class="img-fluid" src="{% static 'img/carta-di-torino-land-registry.webp' %}" alt="carta di torino-land-registry image">
+                <p>
+                    Edificio plurifamiliare <br>
+                    Venaria Reale, Torino, Italia <br>
+                    Committente privato <br>
+                    Rilievo 3D, Bonifica amianto, Riqualificazione energetica tramite cappotto esterno,
+                        Rifacimento della copertura, Sostituzione di serramenti ed impianto termico con il SUPERBONUS 110%
+                </p>
+            </div>
+            <hr class="w-50 mx-auto" style="color: var(--black-color);padding: 1.5px">
+            <div class="content-right-pic">
+                <p>
+                    Edificio plurifamiliare <br>
+                    Collegno, Torino, Italia <br>
+                    Committente privato <br>
+                    Sopraelevazione per recupero sottotetto ai fini abitativi, realizzazione terrazzi, rifacimento copertura
+                </p>
+                <img loading="lazy" class="img-fluid" src="{% static 'img/bg-1.jpg' %}" alt="carta di torino-land-registry image">
+            </div>
+            <hr class="w-50 mx-auto" style="color: var(--black-color);padding: 1.5px">
+            <div class="content-left-pic">
+                <img loading="lazy" class="img-fluid" src="{% static 'img/bg-1.jpg' %}" alt="carta di torino-land-registry image">
+                <p>
+                    Edificio unifamiliare <br>
+                    Coazze, Torino, Italia <br>
+                    Committente privato <br>
+                    Rilievo 3D, Fusione di due unità immobiliare, Ristrutturazione interna ed esterna,
+                    Riqualificazione energetica tramite realizzazione del cappotto esterno, Rifacimento della copertura, Sostituzione di serramenti ed impianto termico
+                </p>
+            </div>
+        </div>
+        <div id="contentTab-2" class="content-tab">
+            <div class="content-right-pic">
+                <p>
+                    Edificio industriale <br>
+                    Collegno, Torino, Italia <br>
+                    Progetto per edificazione di 5000 m2 di capannoni ad uso industriale, Direzione lavori di costruzione, Coordinamento sicurezza
+                </p>
+                <img loading="lazy" class="img-fluid" src="{% static 'img/bg-1.jpg' %}" alt="carta di torino-land-registry image">
+            </div>
+            <hr class="w-50 mx-auto" style="color: var(--black-color);padding: 1.5px">
+            <div class="content-left-pic">
+                <img loading="lazy" class="img-fluid" src="{% static 'img/bg-1.jpg' %}" alt="carta di torino-land-registry image">
+                <p>
+                    OMR, Edificio industriale <br>
+                    Salassa, Torino, Italia <br>
+                    Committente: ANCOVER COSTRUZIONI S.R.L. <br>
+                    Progettazione esecutiva per la Facciata ventilata. <br>
+                </p>
+            </div>
+            <hr class="w-50 mx-auto" style="color: var(--black-color);padding: 1.5px">
+            <div class="content-right-pic">
+                <p>
+                    SIRELMA, Edificio industriale <br>
+                    Busano, Torino, Italia <br>
+                    Committente: ANCOVER COSTRUZIONI S.R.L. <br>
+                    Progettazione esecutiva per la Facciata ventilata. <br>
+                </p>
+                <img loading="lazy" class="img-fluid" src="{% static 'img/bg-1.jpg' %}" alt="carta di torino-land-registry image">
+            </div>
+        </div>
+        <div id="contentTab-3" class="content-tab">
+            <div class="content-right-pic">
+                <p>
+                    Funambolo Chiavari, Manifestazione pubblica <br>
+                    Chiavari, Genova, Italia <br>
+                    Committente privato <br>
+                    Progettazione sistema di ancoraggio della tesata per attraversata a 15m di altezza di funambolo Loreni, Richiesta autorizzazione per la manifestazione, Redazione piano Safety e Security per l’evento ed esibizione di artisti e giocolieri
+                </p>
+                <img loading="lazy" class="img-fluid" src="{% static 'img/bg-1.jpg' %}" alt="carta di torino-land-registry image">
+            </div>
+            <hr class="w-50 mx-auto" style="color: var(--black-color);padding: 1.5px">
+            <div class="content-left-pic">
+                <img loading="lazy" class="img-fluid" src="{% static 'img/bg-1.jpg' %}" alt="carta di torino-land-registry image">
+                <p>
+                    Halloween, Manifestazione pubblica <br>
+                    Lavanderia a Vapore, Collegno, Torino, Italia, 1500 partecipanti, 2018 <br>
+                    Centro commerciale I VIALI, Nichelino, Torino, Italia, 2000 partecipanti, 2019-2022 <br>
+                    Palazzetto dello sport, Lodi, Italia, 1200 partecipanti, 2021 <br>
+                    Committente privato <br>
+                    Richieste autorizzative, Pratica prevenzione incendi, Redazione piano di Safety e Security, pratiche per somministrazione di bevande ed alimenti
+                </p>
+            </div>
+            <hr class="w-50 mx-auto" style="color: var(--black-color);padding: 1.5px">
+            <div class="content-right-pic">
+                <p>
+                    Concerto, Manifestazione pubblica <br>
+                    Centro commerciale I VIALI, Nichelino, Torino, Italia <br>
+                    Committente privato <br>
+                    J-AX, 200 Partecipanti, 2020 <br>
+                    Cristina D’Avena, 1000 partecipanti, 2022 <br>
+                    Concerto Rap, 1000 partecipanti, 2022 <br>
+                    Richieste autorizzative, Pratica prevenzione incendi, Redazione piano di Safety e Security
+                </p>
+                <img loading="lazy" class="img-fluid" src="{% static 'img/bg-1.jpg' %}" alt="carta di torino-land-registry image">
+            </div>
+            <hr class="w-50 mx-auto" style="color: var(--black-color);padding: 1.5px">
+            <div class="content-left-pic">
+                <img loading="lazy" class="img-fluid" src="{% static 'img/bg-1.jpg' %}" alt="carta di torino-land-registry image">
+                <p>
+                    Capodanno, Manifestazione pubblica <br>
+                    Unaway, Bologna, Italia, 2020 <br>
+                    Castello San Giorgio, San Giorgio Canavese, Torino, Italia, 2022 <br>
+                    Villa Bria, Gassino torinese, Torino, Italia, 2020-2022-2023 <br>
+                    Castello dei Solaro, Villanova Solaro, Cuneo, Italia, 2020-2022-2023 <br>
+                    Committente privato <br>
+                    Richieste autorizzative, Pratica prevenzione incendi, Redazione piano di Safety e Security, pratiche per somministrazione di bevande ed alimenti
+                </p>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
