@@ -5,7 +5,7 @@ from coreFa.models import *
 
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ['title', 'short_description', 'pic', 'created_at', 'active', 'author',]
+    list_display = ['title', 'short_description', 'pic', 'created_at', 'active', 'author']
     list_editable = ['active']
 
 

@@ -11,4 +11,5 @@ urlpatterns = [
     path('galley', GalleryListView.as_view(), name='gallery'),
     path('plans', PlansListView.as_view(), name='plans'),
     path('our-projects', ProjectsView.as_view(), name='our-projects'),
+    path('about-haatam-central-baazar', AboutUsView.as_view(), name='about-us'),
     ]

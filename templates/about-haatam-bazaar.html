@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load tags %}
+{% load jalali_tags %}
+{% load thumbnail %}
+{% load static %}
+{% block content %}
+ <section class="page-section-header">
+        <a class="me-1 text-black" href="{% url 'coreFa:home' %}"><h3>صفحه نخست</h3></a>
+        <div class="d-block text-black pt-3" style="border-top: 2px solid var(--black-color);"><h1>درباره پروژه</h1></div>
+    </section>
+		<div class="mx-auto py-4 container-c" style="width: 95%;max-width: 1600px">
+			<div class="row justify-content-center">
+				<div class="col-12 mx-1 mx-md-2 px-2 px-md-5 py-3 bg-white rounded shadow d-flex flex-column justify-content-start align-items-center">
+				<h3 class="rtl text-white bg-black shadow-lg my-4 px-1 px-md-4 py-3 rounded-10 w-100 text-center">
+					توسعه میدان میوه و تره بار مرکزی استان البرز بازار حاتم
+				</h3>
+                    <br><br>
+				<div class="rtl">
+
+					<h4 class="article-header mx-auto mx-md-0 my-2 rounded-10 text-center mt-3">ساخت و توسعه</h4>
+                    <img loading="lazy" class="rounded float-md-start mx-1 me-md-3 article-img" src="{% static 'img/hatam-entrance.webp' %}" alt="بازار مرکزی حاتم">
+                    <p class="article-p text-justify">
+						<span style=""> {{ 'میدان فعلی تره بار مرکزی کرج در سال 1367 به تصمیم مدیران وقت به منظور ساماندهی عرضه میوه و تره بار در کرج و حومه در زمین متعلق به شهرداری کرج با مشارکت حجره داران فعلی برای جمعیتی در حدود سیصد هزار نفر در قالب 180 حجره طراحی و اجرا شده است. بدین صورت که %25 از اعیانی حجرات احداثی متعلق به شهرداری کرج و %75 اعیانی حجرات متعلق به حجره داران می باشد. با گذشت بیش از دو دهه از راه اندازی پروژه مزبور و افزایش جمعیت کرج و حومه به حداقل ده برابر آن زمان (حدود سه میلیون نفر)، میدان مزبور در حال حاضر پاسخگوی نیاز شهروندان نبوده، به همین دلیل توسعه میدان مزبور و ایجاد میادین موازی همواره مورد تأکید مسئولین استان البرز و کلانشهر کرج بوده است. در همین راستا در سال 1392 بنا بر تقاضا و دعوت استاندار وقت و شهردار کلانشهر کرج عملیات احداث پروژه توسعه میدان در قالب«سامانه فروش محصولات کشاورزی» با خریداری زمین به حدود مساحت 30000 مترمربع در ضلع غرب و جنوب میدان فعلی شروع گردید و در طول بیش از 5 سال پیگیری مداوم و اخذ مجوزهای قانونی پروژه از مراجع ذیصلاح من جمله اداره کل جهاد کشاورزی، محیط زیست، راه و شهرسازی، سازمان صمت استان، اداره کل امور زیربنایی استانداری و در نهایت شورای برنامه ریزی استان اخذ و با صدور پروانه توسط شهرداری کرج عملیات ساختمانی آن در سال 1397 شروع گردید.'|persian_int_not_cs }}</span>
+                        <br>
+                        					<h4 class="article-header mx-auto mx-md-0 my-2 rounded-10 text-center mt-3">طرح و سازه</h4>
+                    <p class="article-p" style="padding-bottom: 0">{{ 'با بهره گیری از جدیدترین تکنولوژی و متریال سال 2019 – 2023 بر آن شدیم تا سازه های مستحکم و به روز را به مشتریان ارائه دهیم .'|persian_int_not_cs }}
+                    <br>
+                        <a class="text-info" target="_blank" href="{% url 'coreFa:plans' %}">>> مشاهده پلان ها</a>
+                        <br>
+                        <a class="text-info" target="_blank" href="{% url 'coreFa:gallery' %}">>> مشاهده عکس های پروژه</a>
+                    </p>
+
+
+					<h4 class="article-header mx-auto mx-md-0 my-2 rounded-10 text-center mt-3">پارکینگ</h4>
+                    <p class="article-p" style="padding-bottom: 0">{{ 'به دلیل کمبود پارکینگ خودرو و ازدحام جمعیت در میدان تره بار و حومه آن ، مدیران پروژه تصمیم به ساخت پارکینگ های متعدد جهت رفع موانع ترافیکی و اطمینان خاطر حجره داران و مشتریان عزیز گرفته و ماحصل آن 500عدد پارکینگ در 3 طبقه گردید.'|persian_int_not_cs }}
+                        <br>
+                        <a class="text-info" target="_blank" href="{% url 'coreFa:plans' %}">>> مشاهده پلان ها</a>
+                    </p>
+
+					<h4 class="article-header mx-auto mx-md-0 my-2 rounded-10 text-center mt-3">دسترسی و تجهیزات سردخانه ای</h4>
+                    <p class="article-p" style="padding-bottom: 0">{{ 'در دنیای امروز که مهم ترین اصل روزمرگی دسترسی آسان به هر محصول مورد نیاز می باشد و از آنجاییکه مرکبات و سبزیجات نیاز روزانه هر فرد می باشد و مرکبات بسته به نوع، فصلی می باشد با احداث سردخانه برای مجموعه سهولت در دسترسی به انواع سبزیجات را فراهم نموده است.'|persian_int_not_cs }}
+					</p>
+
+					<h4 class="article-header mx-auto mx-md-0 my-2 rounded-10 text-center mt-3">شعبه بانکی</h4>
+                    <p class="article-p" style="padding-bottom: 0">{{ 'در مجموعه بازار حاتم سامانه فروش مستقیم محصولات کشاورزی به جهت سهولت در انجام امور بانکی ، یک شعبه به بانک اختصاص داده شد تا امور بانکی و پولی مجموعه را انجام دهد.'|persian_int_not_cs }}
+					</p>
+
+
+					<h4 class="article-header mx-auto mx-md-0 my-2 rounded-10 text-center mt-3">امکانات دیگر</h4>
+                    <p class="article-p" style="padding-bottom: 0">{{ 'از دیگر امکانات رفاهی مجموعه می توان به فروشگاه ، چایخانه ، فضای سبز و .... نام برد.'|persian_int_not_cs }}
+					</p>
+
+                    <br><br>
+					<h4 class="article-header bg-info mx-auto mx-md-0 my-2 rounded-10 text-center mt-3 text-justify">بهداشت و فاضلاب و پسماند</h4>
+                    <img loading="lazy" class="rounded float-md-start mx-1 me-md-3 article-img" src="{% static 'img/septic-system.webp' %}" alt="سیستم فاضلاب بازار مرکزی حاتم" width="40%" height="450px">
+                    <p class="article-p" style="padding-bottom: 0">{{ 'یکی دیگر از شاخصه های بارز فنی و بهداشتی این مجموعه که در سطح کشور در نوع خود بدیع و بی مانند است ، سیستم دفع پسماند سپیتیک SEPTIC  می باشد ، علت بهره گیری  از این سیستم دفع پسماند از یک سو حساسیت در حفظ بهداشت و کیفیت توزیع میوه و تره بار و از سویی دیگر ضرورت حفظ محیط زیست می باشد .'|persian_int_not_cs }}
+                    </p>
+                    <h5 class="article-header bg-info mx-auto mx-md-0 my-2 rounded-10 text-center mt-3">سیستم سپتیک</h5>
+                    <p class="article-p text-justify" style="padding-bottom: 0">{{'سیستم‌های سپتیک تانک نوعی تأسیسات فاضلاب در محل OSSF هستند . مخازن سپتیک امکان دفع ایمن فاضلاب را فراهم می کند. سپتیک تانک ها معمولاً به صورت مدفون و در فاصله 50 متری از محل نصب می شوند. این مخازن معمولاً از دو محفظه یا محفظه و یک مخزن تشکیل شده اند که فاضلاب را از یک لوله ورودی دریافت می کند.'|persian_int_not_cs }}
+					</p>
+                    <p class="article-p" style="padding-bottom: 0">{{'انواع مختلف تصفیه فاضلاب غیرمتمرکز، اگر به درستی اجرا شوند، می توانند از سلامت عمومی محافظت کنند، منابع ارزشمند آب را حفظ کنند و منافع اقتصادی را برای یک جامعه ایجاد کنند. '|persian_int_not_cs }}
+					</p>
+                    <h5 class="article-header bg-info mx-auto mx-md-0 my-2 rounded-10 text-center mt-3">مزایای استفاده از سپتیک فاضلاب چیست ؟</h5>
+                    <p class="article-p" style="padding-bottom: 0">
+                        <span class="fw-bold">مزایای سلامت عمومی: </span>
+                        {{'استفاده صحیح از سیستم های تصفیه غیرمتمرکز خطر انتقال بیماری و قرار گرفتن انسان در معرض عوامل بیماری زا را که می تواند از طریق آب آشامیدنی، آب های سطحی و آلودگی بستر صدف ها رخ دهد، کاهش می دهد .'|persian_int_not_cs }}
+					</p>
+                    <p class="article-p" style="padding-bottom: 0">
+                        <span class="fw-bold">مزایای زیست محیطی :</span>
+                        {{' تصفیه فاضلاب، آلودگی را از آب های سطحی حذف می کند، سفره های زیرزمینی را تغذیه می کند و باعث افزایش حجم آب های زیرزمینی می گردد.'|persian_int_not_cs }}
+					</p>
+                    <p class="article-p" style="padding-bottom: 0">
+                         <span class="fw-bold">مزایای اقتصادی :</span>
+                        {{' سیستم های فاضلاب غیرمتمرکز به جوامع در کاهش هزینه های زیرساختی و مصرف انرژی در ساخت تصفیه خانه های متمرکز و سیستم های جمع آوری فاضلاب شهری کمک می کند .'|persian_int_not_cs }}
+					</p>
+
+
+				</div>
+				</div>
+			</div>
+		</div>
+
+{% endblock %}

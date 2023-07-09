@@ -20,7 +20,6 @@ class NewsListView(generic.ListView):
 
 
 class ProjectsView(generic.TemplateView):
-    # model = NewsAndArticles
     template_name = 'our-projects.html'
 
 
@@ -55,3 +54,7 @@ class PlansListView(generic.ListView):
 
     def get_queryset(self):
         return Plans.objects.all().order_by('-pk')
+
+
+class AboutUsView(generic.TemplateView):
+    template_name = 'about-haatam-bazaar.html'

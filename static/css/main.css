@@ -778,7 +778,45 @@ box-shadow: -14px 10px 5px 0px rgba(0,0,0,0.23);
 .content-tab.active{
     display: initial!important;
 }
+
+/******* about-us ********/
+.article-img{
+    max-height: 100%;
+    width: 40%;
+}
+.text-justify{
+    text-align: justify!important;
+}
+.article-header{
+    max-width: max-content;
+    background-color: var(--black-color);
+    color: var(--body-color);
+    padding: 10px 10px;
+    border-radius: 5px;
+    box-shadow: 2px 5px 17px 5px rgba(0,0,0,0.3);
+    margin-bottom: 15px!important;
+}
+.article-p{
+    line-height: 2.3;
+    font-size: 1.3rem;
+    margin: 0!important;
+}
+.article-p > *{
+    line-height: 2.3;
+    font-size: 1.3rem;
+    padding: 5px;
+}
+@media (max-width: 765px){
+    .article-img{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .article-p {
+    padding: 5px 15px;
+}
+}
 /******* footer ********/
+
 
 footer{
     margin-top: 50px;
